@@ -53,3 +53,15 @@ enum TransactionPaymentMethod {
   PIX
   OTHER
 }
+
+// tabela de report a IA ja feito
+// model AiReport {
+//   id         Int      @id @default(autoincrement())
+//   userId     String
+//   month      String
+//   report     String
+//   transactionsHash String // Novo campo para armazenar o hash
+//   createdAt  DateTime @default(now())
+// }
+
+
