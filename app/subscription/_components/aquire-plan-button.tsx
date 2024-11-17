@@ -22,6 +22,7 @@ const AquirePlanButton = ({ planType }: AquirePlanButtonProps) => {
     if (!stripe) {
       console.error("Stripe not found");
     }
+
     await stripe.redirectToCheckout({ sessionId });
   };
   const hasPremiumPlan = user?.publicMetadata.subscriptionPlan === "premium";
