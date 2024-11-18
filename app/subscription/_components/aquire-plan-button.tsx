@@ -21,6 +21,7 @@ const AquirePlanButton = ({ planType }: AquirePlanButtonProps) => {
     );
     if (!stripe) {
       console.error("Stripe not found");
+      return;
     }
 
     await stripe.redirectToCheckout({ sessionId });
