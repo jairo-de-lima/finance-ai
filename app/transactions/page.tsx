@@ -17,6 +17,9 @@ const TransactionsPage = async () => {
     where: {
       userId,
     },
+    orderBy: {
+      date: "desc",
+    },
   });
   const userCanAddTransaction = await canUserAddTransaction();
   return (
@@ -32,7 +35,10 @@ const TransactionsPage = async () => {
         {/* Área rolável */}
         <div className="flex-1 overflow-hidden">
           <ScrollArea className="h-full">
-            <DataTable columns={transactionColumns} data={transactions} />
+            <DataTable
+              columns={transactionColumns}
+              data={JSON.parse(JSON.stringify(transactions))}
+            />
           </ScrollArea>
         </div>
       </div>
