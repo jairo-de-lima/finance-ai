@@ -82,9 +82,19 @@ const UpsertTransactionDialog = ({
   defaultValues,
   transactionId,
 }: UpsertTransactionDialogProps) => {
+  const formatDateDefaultValues = defaultValues
+    ? {
+        ...defaultValues,
+        date:
+          typeof defaultValues.date === "string"
+            ? new Date(defaultValues.date)
+            : defaultValues.date,
+      }
+    : undefined;
+
   const form = useForm<FormSchema>({
     resolver: zodResolver(forSchema),
-    defaultValues: defaultValues ?? {
+    defaultValues: formatDateDefaultValues ?? {
       amount: 0,
       category: TransactionCategory.OTHER,
       date: new Date(),
